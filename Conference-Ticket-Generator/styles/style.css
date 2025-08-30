@@ -1,7 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Asimovian&family=Bungee&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+body {
+  background-image: url(/Conference-Ticket-Generator/assets/images/background-desktop.png);
+}
+
+.front-logo {
+  width: 150px;
+  margin: 20px auto;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 20px 0;
+  font-family: Bungee, cursive;
+}
+
+h6 {
+  font-size: 14px;
+  margin: 10px 0;
+  font-family: "Asimovian", sans-serif;
 }
