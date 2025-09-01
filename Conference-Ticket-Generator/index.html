@@ -12,11 +12,13 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="script.js"></script>
 
     <title>Frontend Mentor | Conference ticket generator</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
+  <div class="slim-form-container">
   <body>
     <!-- Form starts -->
     <img
@@ -26,19 +28,61 @@
       width="100"
     />
     <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
-    <h6>Secure your spot at next year's biggest coding conference.</h6>
-    <h6>Upload Avatar</h6>
-    <form>
-      <h6>
-        Drag and drop or click to upload Upload your photo (JPG or PNG, max
-        size: 500KB).
-      </h6>
-      <input type="file" id="myFile" name="filename" />
-      <input type="submit" value="Upload File" />
+    <h6 class="second-header">Secure your spot at next year's biggest coding conference.</h6>
+    <h6 class="third-header">Upload Avatar</h6>
+    <form id="ticketForm" enctype="multipart/form-data">
+      <div
+      id="dropZone"
+      style="border: 2px dashed #ccc; padding: 20px; text-align: center;"
+      >
+      Drag and drop or click to upload your photo (JPG or PNG, max size: 10MB).
+      <input
+        type="file"
+        id="profilePicture"
+        name="profilePicture"
+        accept="image/jpeg, image/png"
+        style="display: none;"
+        required
+      />
+      </div>
+      <p id="fileName" style="text-align: center; margin-top: 10px;"></p>
+      <br />
+      <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
+        <label class="Fname" for="name" style="margin-bottom: 5px;">Full Name:</label>
+        <input
+          class="Fname"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          style="width: 100%; padding: 8px; margin-bottom: 15px; box-sizing: border-box;"
+          required
+        />
+        <label class="email" for="email" style="margin-bottom: 5px;">Email Address:</label>
+        <input
+          class="email"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@email.com"
+          style="width: 100%; padding: 8px; margin-bottom: 15px; box-sizing: border-box;"
+          required
+        />
+        <label class="github" for="username" style="margin-bottom: 5px;">GitHub Username:</label>
+        <input
+          class="github"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="@yourusername"
+          style="width: 100%; padding: 8px; margin-bottom: 15px; box-sizing: border-box;"
+          required
+        />
+      </div>
+      <br />
+      <button class="ticketgenerator" type="submit">Generate My Ticket</button>
     </form>
-
-    Full Name Email Address example@email.com GitHub Username @yourusername
-    Generate My Ticket
+  </div>
 
     <!-- Form ends -->
 
@@ -59,5 +103,6 @@
       >. Coded by
       <a href="https://github.com/MakAlemNega" target="_blank">Makbel A</a>.
     </div>
+
   </body>
 </html>
