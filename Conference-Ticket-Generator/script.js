@@ -1,39 +1,35 @@
-const dropZone = document.getElementById("dropZone");
-const fileInput = document.getElementById("profilePicture");
-const fileNameDisplay = document.getElementById("fileName");
+// Ensure the script runs after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Select the file input and the image preview element
+  const profilePictureInput = document.getElementById("profilePicture");
+  const previewImage = document.createElement("img"); // Create an image element for preview
+  previewImage.style.maxWidth = "150px"; // Set max width for the preview
+  previewImage.style.maxHeight = "150px"; // Set max height for the preview
+  previewImage.style.display = "block"; // Ensure the image is displayed
 
-dropZone.addEventListener("click", () => fileInput.click());
+  // Append the preview image to the DOM (for example, after the input field)
+  profilePictureInput.insertAdjacentElement("afterend", previewImage);
 
-dropZone.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  dropZone.style.borderColor = "#000";
-});
+  // Add an event listener to handle file input changes
+  profilePictureInput.addEventListener("change", function (event) {
+    const file = event.target.files[0]; // Get the selected file
 
-dropZone.addEventListener("dragleave", () => {
-  dropZone.style.borderColor = "#ccc";
-});
+    if (file) {
+      const reader = new FileReader();
 
-dropZone.addEventListener("drop", (e) => {
-  e.preventDefault();
-  dropZone.style.borderColor = "#ccc";
-  const file = e.dataTransfer.files[0];
-  handleFile(file);
-});
+      // When the file is read, set the preview image source
+      reader.onload = function (e) {
+        previewImage.src = e.target.result; // Set the image source to the file data
+      };
 
-fileInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  handleFile(file);
-});
-
-function handleFile(file) {
-  if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
-    if (file.size <= 10 * 1024 * 1024) {
-      fileNameDisplay.textContent = `Selected file: ${file.name}`;
+      reader.readAsDataURL(file); // Read the file as a data URL
     } else {
-      fileNameDisplay.textContent = "File size exceeds 10MB limit.";
+      // If no file is selected, clear the preview
+      previewImage.src = "";
     }
-  } else {
-    fileNameDisplay.textContent =
-      "Invalid file type. Please upload a JPG or PNG.";
-  }
-}
+  });
+});
+// Hide the upload box and center the profile picture
+profilePictureInput.style.display = "none"; // Hide the input box
+previewImage.style.margin = "0 auto"; // Center the image horizontally
+previewImage.style.display = "block"; // Ensure the image is displayed as a block element

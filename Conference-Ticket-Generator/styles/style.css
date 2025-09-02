@@ -64,6 +64,88 @@ h6 {
   -webkit-backdrop-filter: blur(8.5px);
 }
 
+#dropZone {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: fit-content;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#dropZone p {
+  display: block;
+  margin: 0;
+}
+
+#dropZone input {
+  display: none;
+  margin: 0;
+}
+
+#dropZone label {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 7px;
+  text-align: center;
+}
+
+#dropZone img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+#dropZone.highlight {
+  background-color: #f0f0f0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.name-label {
+  margin-bottom: 5px;
+}
+
+.name-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.email-label {
+  margin-bottom: 5px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.github-label {
+  margin-bottom: 5px;
+}
+
+.github-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
 button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -76,35 +158,44 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 button:hover {
   background-color: hsl(228, 45%, 34%);
 }
+
 button:active {
   background-color: hsl(228, 45%, 24%);
 }
+
 button:disabled {
   background-color: gray;
   cursor: not-allowed;
 }
+
 footer {
   position: absolute;
   bottom: 10px;
   width: 100%;
 }
+
 footer p {
   font-size: 12px;
   color: white;
 }
+
 footer a {
   color: hsl(228, 45%, 44%);
   text-decoration: none;
 }
+
 footer a:hover {
   text-decoration: underline;
 }
+
 footer a:active {
   color: hsl(228, 45%, 24%);
 }
+
 footer a:visited {
   color: hsl(228, 45%, 34%);
 }
