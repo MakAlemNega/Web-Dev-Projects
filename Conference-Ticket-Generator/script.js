@@ -33,3 +33,22 @@ document.addEventListener("DOMContentLoaded", function () {
 profilePictureInput.style.display = "none"; // Hide the input box
 previewImage.style.margin = "0 auto"; // Center the image horizontally
 previewImage.style.display = "block"; // Ensure the image is displayed as a block element
+
+document
+  .getElementById("ticketForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+
+    // Redirect to ticket.html with query parameters
+    const url = `ticket.html?name=${encodeURIComponent(
+      name
+    )}&email=${encodeURIComponent(email)}&username=${encodeURIComponent(
+      username
+    )}`;
+    window.location.href = url;
+  });
